@@ -112,7 +112,7 @@ public class BookDAO {
 	        statement.setString(1, book.getTitle());
 	        statement.setString(2, book.getAuthor());
 	        statement.setFloat(3, book.getPrice());
-	        statement.setFloat(4, book.getId());
+	        statement.setInt(4, book.getId());
 	        
 	        statement.executeUpdate();
 	        statement.close();
