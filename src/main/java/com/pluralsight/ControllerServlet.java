@@ -50,6 +50,9 @@ public class ControllerServlet extends HttpServlet {
 
 		try {
 			switch(action) {
+				case "/delete":
+					 deleteBook(request, response);
+           break;
 				case "/admin":
 					 showBookAdmin(request, response);
            break;
@@ -105,6 +108,12 @@ public class ControllerServlet extends HttpServlet {
 		response.sendRedirect("list");
 	}
 
+	private void deleteBook(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		bookDAO.deleteBook(Integer.parseInt(request.getParameter("id")));
+		response.sendRedirect("list");
+	}	
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
